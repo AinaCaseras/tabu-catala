@@ -27,7 +27,7 @@ label{display:block;font-size:12px;font-weight:800;margin:13px 0 6px}input,texta
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
 </head>
 <body>
-<header><div><div class="brand">TABÚ<span>.</span> català</div><p>Un joc de paraules per a les teves classes</p></div><div class="hint">VERSIÓ DE PROVA</div></header>
+<header><div><div class="brand">TABÚ<span>.</span> català</div><p>Un joc per aprendre vocabulari jugant</p></div></header>
 <main>
 <nav class="tabs" aria-label="Seccions"><button class="tab active" data-view="play">Jugar</button><button class="tab" data-view="edit">Les meves cartes</button><button class="tab" data-view="share">Compartir</button></nav>
 <section id="play"><div class="layout"><div>
@@ -42,16 +42,1196 @@ label{display:block;font-size:12px;font-weight:800;margin:13px 0 6px}input,texta
 </main><footer>Tabú · Català — eina independent per a ús educatiu</footer>
 <script>
 const EXAMPLES=[
-{word:"ANAR DE BÒLIT",category:"Expressions",forbidden:["pressa","córrer","feina","ocupat","temps"]},
-{word:"FER-NE CINC CÈNTIMS",category:"Expressions",forbidden:["explicar","resum","dir","breu","detalls"]},
-{word:"ESTAR COM UN LLUM",category:"Expressions",forbidden:["boig","boja","seny","cap","estrany"]},
-{word:"ESQUITXAR",category:"Accions",forbidden:["aigua","mullar","gotes","saltar","esquitx"]},
-{word:"PORTER",category:"Esports",forbidden:["futbol","pilota","porteria","aturar","equip"]},
-{word:"ESTORNUDAR",category:"Salut",forbidden:["nas","mocs","al·lèrgia","salut","atxim"]},
-{word:"BICICLETA",category:"Vocabulari",forbidden:["pedalar","rodes","casc","manillar","ciclisme"]},
-{word:"MERCAT",category:"Ciutat",forbidden:["comprar","parades","fruita","venedor","preu"]}
+  {
+    "word": "ANAR DE BÒLIT",
+    "category": "Expressions",
+    "forbidden": [
+      "pressa",
+      "córrer",
+      "feina",
+      "ocupat",
+      "temps"
+    ]
+  },
+  {
+    "word": "FER-NE CINC CÈNTIMS",
+    "category": "Expressions",
+    "forbidden": [
+      "explicar",
+      "resum",
+      "dir",
+      "breu",
+      "detalls"
+    ]
+  },
+  {
+    "word": "ESTAR COM UN LLUM",
+    "category": "Expressions",
+    "forbidden": [
+      "boig",
+      "boja",
+      "seny",
+      "cap",
+      "estrany"
+    ]
+  },
+  {
+    "word": "ESQUITXAR",
+    "category": "Accions",
+    "forbidden": [
+      "aigua",
+      "mullar",
+      "gotes",
+      "saltar",
+      "esquitx"
+    ]
+  },
+  {
+    "word": "PORTER",
+    "category": "Esports",
+    "forbidden": [
+      "futbol",
+      "pilota",
+      "porteria",
+      "aturar",
+      "equip"
+    ]
+  },
+  {
+    "word": "ESTERNUDAR",
+    "category": "Salut",
+    "forbidden": [
+      "nas",
+      "mocs",
+      "al·lèrgia",
+      "salut",
+      "atxim"
+    ]
+  },
+  {
+    "word": "BICICLETA",
+    "category": "Vocabulari",
+    "forbidden": [
+      "pedalar",
+      "rodes",
+      "casc",
+      "manillar",
+      "ciclisme"
+    ]
+  },
+  {
+    "word": "MERCAT",
+    "category": "Ciutat",
+    "forbidden": [
+      "comprar",
+      "parades",
+      "fruita",
+      "venedor",
+      "preu"
+    ]
+  },
+  {
+    "word": "PODCAST",
+    "category": "Cultura",
+    "forbidden": [
+      "àudio",
+      "episodi",
+      "micròfon",
+      "escoltar",
+      "parlar"
+    ]
+  },
+  {
+    "word": "DOCUMENTAL",
+    "category": "Cultura",
+    "forbidden": [
+      "realitat",
+      "filmar",
+      "informació",
+      "història",
+      "explicar"
+    ]
+  },
+  {
+    "word": "SÈRIE",
+    "category": "Cultura",
+    "forbidden": [
+      "capítol",
+      "temporada",
+      "actors",
+      "televisió",
+      "plataforma"
+    ]
+  },
+  {
+    "word": "PEL·LÍCULA",
+    "category": "Cultura",
+    "forbidden": [
+      "cinema",
+      "pantalla",
+      "actors",
+      "director",
+      "crispetes"
+    ]
+  },
+  {
+    "word": "ACTOR",
+    "category": "Cultura",
+    "forbidden": [
+      "interpretar",
+      "personatge",
+      "escena",
+      "teatre",
+      "pel·lícula"
+    ]
+  },
+  {
+    "word": "GUIÓ",
+    "category": "Cultura",
+    "forbidden": [
+      "història",
+      "diàleg",
+      "escriure",
+      "escena",
+      "pel·lícula"
+    ]
+  },
+  {
+    "word": "SUBTÍTOLS",
+    "category": "Cultura",
+    "forbidden": [
+      "llegir",
+      "pantalla",
+      "idioma",
+      "traducció",
+      "diàleg"
+    ]
+  },
+  {
+    "word": "KARAOKE",
+    "category": "Cultura",
+    "forbidden": [
+      "cantar",
+      "micròfon",
+      "lletra",
+      "música",
+      "bar"
+    ]
+  },
+  {
+    "word": "CONCERT",
+    "category": "Cultura",
+    "forbidden": [
+      "música",
+      "cantar",
+      "escenari",
+      "públic",
+      "entrades"
+    ]
+  },
+  {
+    "word": "FESTIVAL",
+    "category": "Cultura",
+    "forbidden": [
+      "concerts",
+      "música",
+      "estiu",
+      "públic",
+      "artistes"
+    ]
+  },
+  {
+    "word": "ESCENARI",
+    "category": "Cultura",
+    "forbidden": [
+      "teatre",
+      "actors",
+      "públic",
+      "actuar",
+      "llums"
+    ]
+  },
+  {
+    "word": "NOVEL·LA",
+    "category": "Cultura",
+    "forbidden": [
+      "llibre",
+      "llegir",
+      "història",
+      "personatges",
+      "escriptor"
+    ]
+  },
+  {
+    "word": "BIBLIOTECA",
+    "category": "Cultura",
+    "forbidden": [
+      "llibres",
+      "préstec",
+      "silenci",
+      "llegir",
+      "prestatges"
+    ]
+  },
+  {
+    "word": "ENTREVISTA",
+    "category": "Cultura",
+    "forbidden": [
+      "preguntes",
+      "respostes",
+      "periodista",
+      "feina",
+      "parlar"
+    ]
+  },
+  {
+    "word": "TITULAR",
+    "category": "Cultura",
+    "forbidden": [
+      "notícia",
+      "diari",
+      "premsa",
+      "article",
+      "destacar"
+    ]
+  },
+  {
+    "word": "ALGORITME",
+    "category": "Tecnologia",
+    "forbidden": [
+      "xarxes",
+      "dades",
+      "càlcul",
+      "ordinador",
+      "recomanar"
+    ]
+  },
+  {
+    "word": "INTEL·LIGÈNCIA ARTIFICIAL",
+    "category": "Tecnologia",
+    "forbidden": [
+      "màquina",
+      "robot",
+      "tecnologia",
+      "ChatGPT",
+      "aprendre"
+    ]
+  },
+  {
+    "word": "CONTRASENYA",
+    "category": "Tecnologia",
+    "forbidden": [
+      "secret",
+      "accés",
+      "compte",
+      "iniciar sessió",
+      "seguretat"
+    ]
+  },
+  {
+    "word": "VIDEOTRUCADA",
+    "category": "Tecnologia",
+    "forbidden": [
+      "càmera",
+      "pantalla",
+      "internet",
+      "parlar",
+      "mòbil"
+    ]
+  },
+  {
+    "word": "AURICULARS",
+    "category": "Tecnologia",
+    "forbidden": [
+      "orelles",
+      "música",
+      "escoltar",
+      "cable",
+      "so"
+    ]
+  },
+  {
+    "word": "APLICACIÓ",
+    "category": "Tecnologia",
+    "forbidden": [
+      "mòbil",
+      "descarregar",
+      "programa",
+      "icona",
+      "pantalla"
+    ]
+  },
+  {
+    "word": "ORDINADOR",
+    "category": "Tecnologia",
+    "forbidden": [
+      "teclat",
+      "ratolí",
+      "pantalla",
+      "treballar",
+      "portàtil"
+    ]
+  },
+  {
+    "word": "PANTALLA",
+    "category": "Tecnologia",
+    "forbidden": [
+      "mòbil",
+      "ordinador",
+      "imatge",
+      "mirar",
+      "tocar"
+    ]
+  },
+  {
+    "word": "TECLAT",
+    "category": "Tecnologia",
+    "forbidden": [
+      "tecles",
+      "escriure",
+      "ordinador",
+      "lletres",
+      "dits"
+    ]
+  },
+  {
+    "word": "CARREGADOR",
+    "category": "Tecnologia",
+    "forbidden": [
+      "bateria",
+      "endoll",
+      "mòbil",
+      "cable",
+      "electricitat"
+    ]
+  },
+  {
+    "word": "NOTIFICACIÓ",
+    "category": "Tecnologia",
+    "forbidden": [
+      "avís",
+      "mòbil",
+      "missatge",
+      "so",
+      "pantalla"
+    ]
+  },
+  {
+    "word": "PERFIL",
+    "category": "Tecnologia",
+    "forbidden": [
+      "compte",
+      "usuari",
+      "xarxes socials",
+      "fotografia",
+      "informació"
+    ]
+  },
+  {
+    "word": "SEGUIDOR",
+    "category": "Tecnologia",
+    "forbidden": [
+      "Instagram",
+      "compte",
+      "xarxes",
+      "seguir",
+      "publicació"
+    ]
+  },
+  {
+    "word": "FILTRE",
+    "category": "Tecnologia",
+    "forbidden": [
+      "fotografia",
+      "efecte",
+      "Instagram",
+      "cara",
+      "editar"
+    ]
+  },
+  {
+    "word": "PUBLICACIÓ",
+    "category": "Tecnologia",
+    "forbidden": [
+      "xarxes socials",
+      "foto",
+      "vídeo",
+      "compartir",
+      "comentari"
+    ]
+  },
+  {
+    "word": "XAFARDEIG",
+    "category": "Vida social",
+    "forbidden": [
+      "rumor",
+      "parlar",
+      "secrets",
+      "veïns",
+      "tafanejar"
+    ]
+  },
+  {
+    "word": "RUMOR",
+    "category": "Vida social",
+    "forbidden": [
+      "notícia",
+      "veritat",
+      "mentida",
+      "explicar",
+      "gent"
+    ]
+  },
+  {
+    "word": "CITA",
+    "category": "Vida social",
+    "forbidden": [
+      "quedar",
+      "hora",
+      "lloc",
+      "parella",
+      "conèixer"
+    ]
+  },
+  {
+    "word": "COMPROMÍS",
+    "category": "Vida social",
+    "forbidden": [
+      "promesa",
+      "responsabilitat",
+      "parella",
+      "obligació",
+      "acord"
+    ]
+  },
+  {
+    "word": "DISCUSSIÓ",
+    "category": "Vida social",
+    "forbidden": [
+      "baralla",
+      "enfadar-se",
+      "opinió",
+      "cridar",
+      "desacord"
+    ]
+  },
+  {
+    "word": "MALENTÈS",
+    "category": "Vida social",
+    "forbidden": [
+      "confusió",
+      "entendre",
+      "error",
+      "explicar",
+      "problema"
+    ]
+  },
+  {
+    "word": "EXCUSA",
+    "category": "Vida social",
+    "forbidden": [
+      "motiu",
+      "justificar",
+      "mentida",
+      "arribar tard",
+      "explicar"
+    ]
+  },
+  {
+    "word": "CONVIDAT",
+    "category": "Vida social",
+    "forbidden": [
+      "festa",
+      "casa",
+      "invitació",
+      "rebre",
+      "celebració"
+    ]
+  },
+  {
+    "word": "VEÍ",
+    "category": "Vida social",
+    "forbidden": [
+      "pis",
+      "escala",
+      "edifici",
+      "porta",
+      "comunitat"
+    ]
+  },
+  {
+    "word": "FESTA SORPRESA",
+    "category": "Vida social",
+    "forbidden": [
+      "aniversari",
+      "regal",
+      "amagar",
+      "celebrar",
+      "convidats"
+    ]
+  },
+  {
+    "word": "PRIMERA IMPRESSIÓ",
+    "category": "Vida social",
+    "forbidden": [
+      "conèixer",
+      "persona",
+      "opinió",
+      "aparença",
+      "principi"
+    ]
+  },
+  {
+    "word": "VERGONYA",
+    "category": "Vida social",
+    "forbidden": [
+      "vermell",
+      "timidesa",
+      "ridícul",
+      "situació",
+      "incòmode"
+    ]
+  },
+  {
+    "word": "GELOSIA",
+    "category": "Vida social",
+    "forbidden": [
+      "parella",
+      "confiança",
+      "sospita",
+      "enveja",
+      "inseguretat"
+    ]
+  },
+  {
+    "word": "CONFIANÇA",
+    "category": "Vida social",
+    "forbidden": [
+      "sinceritat",
+      "seguretat",
+      "secret",
+      "amistat",
+      "creure"
+    ]
+  },
+  {
+    "word": "ENAMORAMENT",
+    "category": "Vida social",
+    "forbidden": [
+      "amor",
+      "parella",
+      "cor",
+      "atracció",
+      "sentiments"
+    ]
+  },
+  {
+    "word": "PERIODISTA",
+    "category": "Professions",
+    "forbidden": [
+      "notícia",
+      "entrevista",
+      "diari",
+      "informar",
+      "mitjans"
+    ]
+  },
+  {
+    "word": "CAMBRER",
+    "category": "Professions",
+    "forbidden": [
+      "restaurant",
+      "safata",
+      "taula",
+      "comanda",
+      "propina"
+    ]
+  },
+  {
+    "word": "ADVOCAT",
+    "category": "Professions",
+    "forbidden": [
+      "llei",
+      "jutge",
+      "defensa",
+      "tribunal",
+      "client"
+    ]
+  },
+  {
+    "word": "METGE",
+    "category": "Professions",
+    "forbidden": [
+      "hospital",
+      "pacient",
+      "malalt",
+      "consulta",
+      "recepta"
+    ]
+  },
+  {
+    "word": "PROFESSOR",
+    "category": "Professions",
+    "forbidden": [
+      "alumnes",
+      "escola",
+      "classe",
+      "ensenyar",
+      "examen"
+    ]
+  },
+  {
+    "word": "CUINER",
+    "category": "Professions",
+    "forbidden": [
+      "restaurant",
+      "cuina",
+      "plat",
+      "recepta",
+      "aliments"
+    ]
+  },
+  {
+    "word": "VETERINARI",
+    "category": "Professions",
+    "forbidden": [
+      "animals",
+      "gos",
+      "clínica",
+      "salut",
+      "consulta"
+    ]
+  },
+  {
+    "word": "ARQUITECTE",
+    "category": "Professions",
+    "forbidden": [
+      "edifici",
+      "plànol",
+      "dissenyar",
+      "casa",
+      "construcció"
+    ]
+  },
+  {
+    "word": "FOTÒGRAF",
+    "category": "Professions",
+    "forbidden": [
+      "càmera",
+      "imatge",
+      "retrat",
+      "fotografia",
+      "objectiu"
+    ]
+  },
+  {
+    "word": "DISSENYADOR",
+    "category": "Professions",
+    "forbidden": [
+      "creativitat",
+      "dibuix",
+      "disseny",
+      "colors",
+      "projecte"
+    ]
+  },
+  {
+    "word": "TRADUCTOR",
+    "category": "Professions",
+    "forbidden": [
+      "idiomes",
+      "paraules",
+      "text",
+      "llengua",
+      "significat"
+    ]
+  },
+  {
+    "word": "ENTRENADOR",
+    "category": "Professions",
+    "forbidden": [
+      "equip",
+      "esport",
+      "exercici",
+      "tàctica",
+      "jugador"
+    ]
+  },
+  {
+    "word": "ENTREVISTA DE FEINA",
+    "category": "Feina",
+    "forbidden": [
+      "candidat",
+      "empresa",
+      "preguntes",
+      "currículum",
+      "contractar"
+    ]
+  },
+  {
+    "word": "SOU",
+    "category": "Feina",
+    "forbidden": [
+      "diners",
+      "cobrar",
+      "feina",
+      "nòmina",
+      "mensual"
+    ]
+  },
+  {
+    "word": "CURRÍCULUM",
+    "category": "Feina",
+    "forbidden": [
+      "experiència",
+      "estudis",
+      "feina",
+      "formació",
+      "candidat"
+    ]
+  },
+  {
+    "word": "ENSOPEGAR",
+    "category": "Verbs",
+    "forbidden": [
+      "caure",
+      "peu",
+      "obstacle",
+      "caminar",
+      "terra"
+    ]
+  },
+  {
+    "word": "REMENAR",
+    "category": "Verbs",
+    "forbidden": [
+      "barrejar",
+      "cullera",
+      "olla",
+      "moure",
+      "buscar"
+    ]
+  },
+  {
+    "word": "ARROSSEGAR",
+    "category": "Verbs",
+    "forbidden": [
+      "estirar",
+      "terra",
+      "moure",
+      "pes",
+      "objecte"
+    ]
+  },
+  {
+    "word": "ENFILAR-SE",
+    "category": "Verbs",
+    "forbidden": [
+      "pujar",
+      "escala",
+      "arbre",
+      "alçada",
+      "cames"
+    ]
+  },
+  {
+    "word": "ESQUITXAR",
+    "category": "Verbs",
+    "forbidden": [
+      "aigua",
+      "mullar",
+      "gotes",
+      "saltar",
+      "esquitx"
+    ]
+  },
+  {
+    "word": "ESTERNUDAR",
+    "category": "Verbs",
+    "forbidden": [
+      "nas",
+      "al·lèrgia",
+      "mocs",
+      "atxim",
+      "mocador"
+    ]
+  },
+  {
+    "word": "BADALLAR",
+    "category": "Verbs",
+    "forbidden": [
+      "son",
+      "boca",
+      "cansament",
+      "dormir",
+      "obrir"
+    ]
+  },
+  {
+    "word": "SUAR",
+    "category": "Verbs",
+    "forbidden": [
+      "calor",
+      "pell",
+      "exercici",
+      "aigua",
+      "aixelles"
+    ]
+  },
+  {
+    "word": "ENCONGIR",
+    "category": "Verbs",
+    "forbidden": [
+      "petit",
+      "roba",
+      "rentar",
+      "reduir",
+      "mida"
+    ]
+  },
+  {
+    "word": "ENGANYAR",
+    "category": "Verbs",
+    "forbidden": [
+      "mentir",
+      "veritat",
+      "trampa",
+      "confiar",
+      "amagar"
+    ]
+  },
+  {
+    "word": "CONFIAR",
+    "category": "Verbs",
+    "forbidden": [
+      "creure",
+      "seguretat",
+      "persona",
+      "secret",
+      "dubtar"
+    ]
+  },
+  {
+    "word": "DUBTAR",
+    "category": "Verbs",
+    "forbidden": [
+      "decidir",
+      "segur",
+      "pregunta",
+      "pensar",
+      "incertesa"
+    ]
+  },
+  {
+    "word": "REBUTJAR",
+    "category": "Verbs",
+    "forbidden": [
+      "acceptar",
+      "proposta",
+      "dir que no",
+      "oferta",
+      "negar"
+    ]
+  },
+  {
+    "word": "PROPOSAR",
+    "category": "Verbs",
+    "forbidden": [
+      "idea",
+      "suggerir",
+      "pla",
+      "opció",
+      "oferir"
+    ]
+  },
+  {
+    "word": "INSISTIR",
+    "category": "Verbs",
+    "forbidden": [
+      "repetir",
+      "demanar",
+      "continuar",
+      "pesat",
+      "convèncer"
+    ]
+  },
+  {
+    "word": "ROMA",
+    "category": "Llocs",
+    "forbidden": [
+      "Itàlia",
+      "Coliseu",
+      "pizza",
+      "capital",
+      "història"
+    ]
+  },
+  {
+    "word": "PARÍS",
+    "category": "Llocs",
+    "forbidden": [
+      "França",
+      "Torre Eiffel",
+      "Sena",
+      "croissant",
+      "amor"
+    ]
+  },
+  {
+    "word": "LONDRES",
+    "category": "Llocs",
+    "forbidden": [
+      "Anglaterra",
+      "Big Ben",
+      "Tàmesi",
+      "metro",
+      "pluja"
+    ]
+  },
+  {
+    "word": "NOVA YORK",
+    "category": "Llocs",
+    "forbidden": [
+      "Estats Units",
+      "Manhattan",
+      "gratacels",
+      "Broadway",
+      "taxi"
+    ]
+  },
+  {
+    "word": "PARAIGUA",
+    "category": "Objectes",
+    "forbidden": [
+      "pluja",
+      "aigua",
+      "obrir",
+      "tempesta",
+      "mullat"
+    ]
+  },
+  {
+    "word": "ASCENSOR",
+    "category": "Objectes",
+    "forbidden": [
+      "pujar",
+      "baixar",
+      "edifici",
+      "botó",
+      "pisos"
+    ]
+  },
+  {
+    "word": "RELLOTGE",
+    "category": "Objectes",
+    "forbidden": [
+      "hora",
+      "minuts",
+      "temps",
+      "canell",
+      "agulles"
+    ]
+  },
+  {
+    "word": "MOTXILLA",
+    "category": "Objectes",
+    "forbidden": [
+      "esquena",
+      "escola",
+      "bossa",
+      "llibres",
+      "viatge"
+    ]
+  },
+  {
+    "word": "MIRALL",
+    "category": "Objectes",
+    "forbidden": [
+      "reflex",
+      "cara",
+      "lavabo",
+      "vidre",
+      "mirar"
+    ]
+  },
+  {
+    "word": "MALETA",
+    "category": "Objectes",
+    "forbidden": [
+      "viatge",
+      "roba",
+      "aeroport",
+      "vacances",
+      "equipatge"
+    ]
+  },
+  {
+    "word": "ASPIRADORA",
+    "category": "Objectes",
+    "forbidden": [
+      "netejar",
+      "pols",
+      "casa",
+      "soroll",
+      "escombra"
+    ]
+  },
+  {
+    "word": "SEMÀFOR",
+    "category": "Objectes",
+    "forbidden": [
+      "cotxes",
+      "verd",
+      "vermell",
+      "carrer",
+      "creuar"
+    ]
+  },
+  {
+    "word": "EMBÚS",
+    "category": "Vida quotidiana",
+    "forbidden": [
+      "trànsit",
+      "cotxes",
+      "carretera",
+      "lent",
+      "cua"
+    ]
+  },
+  {
+    "word": "FACTURA",
+    "category": "Vida quotidiana",
+    "forbidden": [
+      "pagar",
+      "diners",
+      "compra",
+      "empresa",
+      "import"
+    ]
+  },
+  {
+    "word": "DEVOLUCIÓ",
+    "category": "Vida quotidiana",
+    "forbidden": [
+      "tornar",
+      "botiga",
+      "diners",
+      "producte",
+      "rebut"
+    ]
+  },
+  {
+    "word": "GARANTIA",
+    "category": "Vida quotidiana",
+    "forbidden": [
+      "producte",
+      "avaria",
+      "reparació",
+      "comprar",
+      "termini"
+    ]
+  },
+  {
+    "word": "RESERVA",
+    "category": "Vida quotidiana",
+    "forbidden": [
+      "hotel",
+      "taula",
+      "restaurant",
+      "plaça",
+      "confirmar"
+    ]
+  },
+  {
+    "word": "EQUIPATGE",
+    "category": "Vida quotidiana",
+    "forbidden": [
+      "maleta",
+      "viatge",
+      "aeroport",
+      "roba",
+      "pesar"
+    ]
+  },
+  {
+    "word": "TAQUILLA",
+    "category": "Vida quotidiana",
+    "forbidden": [
+      "clau",
+      "vestidor",
+      "guardar",
+      "escola",
+      "armari"
+    ]
+  },
+  {
+    "word": "CLAU",
+    "category": "Objectes",
+    "forbidden": [
+      "porta",
+      "pany",
+      "obrir",
+      "tancar",
+      "metall"
+    ]
+  },
+  {
+    "word": "REUNIÓ",
+    "category": "Feina",
+    "forbidden": [
+      "persones",
+      "feina",
+      "parlar",
+      "agenda",
+      "acord"
+    ]
+  },
+  {
+    "word": "CLIENT",
+    "category": "Feina",
+    "forbidden": [
+      "empresa",
+      "comprar",
+      "servei",
+      "vendre",
+      "atendre"
+    ]
+  },
+  {
+    "word": "COMPANY DE FEINA",
+    "category": "Feina",
+    "forbidden": [
+      "oficina",
+      "equip",
+      "treballar",
+      "col·lega",
+      "empresa"
+    ]
+  },
+  {
+    "word": "RECONCILIACIÓ",
+    "category": "Vida social",
+    "forbidden": [
+      "perdó",
+      "discutir",
+      "tornar",
+      "parella",
+      "amistat"
+    ]
+  },
+  {
+    "word": "DECEPCIÓ",
+    "category": "Vida social",
+    "forbidden": [
+      "expectativa",
+      "tristesa",
+      "frustració",
+      "esperar",
+      "desil·lusió"
+    ]
+  }
 ];
-const KEY="tabu_catala_deck_v2";
+const KEY="tabu_catala_deck_v3";
 let deck=loadDeck(),index=0,score=0,remaining=60,interval=null,running=false,order=[],db=null,room=null,role="host",applying=false,roomListener=null;
 const $=id=>document.getElementById(id);
 function loadDeck(){try{const d=JSON.parse(localStorage.getItem(KEY));return Array.isArray(d)&&d.length?d:EXAMPLES.map(c=>({...c}));}catch(e){return EXAMPLES.map(c=>({...c}));}}
